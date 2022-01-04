@@ -445,6 +445,20 @@ open class TagListView: UIView {
         return tagViews.filter { $0.isSelected }
     }
     
+    open func allTags() -> [TagView] {
+        return tagViews
+    }
+    
+    open func allTagTitles() -> [String] {
+        var titles = [String]()
+        for oneView in tagViews {
+            if let title = oneView.title(for: .normal) {
+                titles.append(title)
+            }
+        }
+        return titles
+    }
+    
     // MARK: - Events
     
     @objc func tagPressed(_ sender: TagView!) {
